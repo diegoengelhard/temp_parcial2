@@ -1,0 +1,43 @@
+/* ----------- HOME PAGE ------------- */
+body {
+    background-image: url('./images/trooper_backgroubnd1.jpg');
+    background-size: cover;
+    color: white;
+}
+
+img {
+    width: 600px;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+p {
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+button {
+    height: 57px;
+    width: 173px;
+    background-color: transparent;
+    color: white;
+    border: 3px solid white;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+button:hover {
+    color: black;
+    background-color: white;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+p, button {
+    margin-left: 40px;
+}
