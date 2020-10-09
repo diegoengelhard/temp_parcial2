@@ -1,0 +1,35 @@
+.pagination {
+    list-style: none;
+    display: flex;
+    position: relative;
+}
+
+.page-item {
+    margin-right: 15px;
+}
+
+.page-item button {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.page-item button i {
+    color: white;
+    font-size: 30px;
+}
+
+.fa-arrow-right:hover{
+    transform: translateX(4px);
+    transition: .4s;
+}
+
+.fa-arrow-left:hover{
+    transform: translateX(-4px);
+    transition: .4s;
+}
+
+.fa-arrow-left:hover,
+.fa-arrow-right:hover {
+    cursor: pointer;
+}

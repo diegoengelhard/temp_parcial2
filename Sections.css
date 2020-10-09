@@ -1,193 +1,92 @@
 /* ---------- DISENO PARA LAS SECCIONES -------------  */
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
 
-/* DISENO DEL BODY */
+.container {
+    margin: 0 70px;
+}
+
+/* SECCION DISCOVER */
 .Discover {
-    background-image: url("./images/trooper2_background.jpg"), linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65));
+    background-image: url("./images/trooper2_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     background-blend-mode: overlay;
+    background-repeat: no-repeat;
     background-size: cover;
     color: white;
     font-family: Lato;
 }
 
-.YourFleet {
-    background-image: url("./images/CloneTrooper_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+.Discover .title{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.Discover .title figure img {
+    width: 300px
+}
+
+.Discover h2 {
+    margin-left: 25px;
+    font-size: 28px;
+    letter-spacing: .5px;
+}
+
+/* SECCION STARSHIPS */
+.Starships {
+    background-image: url("./images/stormtrooper3_backrgound.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     background-blend-mode: overlay;
     background-size: cover;
     color: white;
     font-family: Lato; 
 }
 
-/* DISENO HEADER */
-.header {
-    background-color: black;
-    margin-top: -8px;
-    margin-left: -8px;
-    margin-right: -8px;
-    display: flex;
-    padding: 15px 0;
-    justify-content: space-between;
-    border-bottom: 3px solid #4A4949;
+.Starships .title{
+    text-align: center;
+    margin-top: 25px;
 }
 
-/* Logo */
-.logo{
-    margin-left: 80px;
+.Starships .title figure img {
+    width: 300px
 }
 
-.logo img {
-    display: block;
-    width: 104px;
+.Starships h2 {
+    margin-left: 25px;
+    font-size: 28px;
+    letter-spacing: .5px;
 }
 
-.wars {
-    margin-top: 2px;
-}
+/* SECCION CHARACTERS */
 
-/* Menu */
-.menu {
-    list-style: none;
-    display: flex;
-}
-
-.menu li {
-    margin: 0 10px;
-}
-
-.menu li a:hover {
-    border-bottom: 2px solid white;
-    color: #e0e0e0;
-    transition: 0.1s;
-    font-size: 19px;
-}
-
-.menu li a {
-    text-decoration: none;
+.Characters {
+    background-image: url("./images/DarthVader_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    background-blend-mode: overlay;
+    background-size: cover;
     color: white;
-    font-family: Lato, sans-serif;
-    font-size: 18px;
-    padding-bottom: 2px;
+    font-family: Lato; 
 }
 
-/* Searchbar */
-.search {
-    margin-top: 12px;
-    margin-right: 38px;
+.Characters .title{
+    text-align: center;
+    margin-top: 25px;
 }
 
-.searchbar {
-    font-size: 100%;
-    outline: none;
-    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-    border: solid 1px #ccc;
-    padding: 9px 10px 9px 32px;
-    width: 55px;
-    border-radius: 10em;
-    transition: all .5s;
-    height: 30px;
+.Characters .title figure img {
+    width: 300px
 }
 
-.form-searchbar .searchbar {
-    width: 110px;
-    padding-left: 10px;
-    color: transparent;
-    cursor: pointer;
+.Characters h2 {
+    margin-left: 25px;
+    font-size: 28px;
+    letter-spacing: .5px;
 }
 
-.form-searchbar .searchbar:hover {
-    background-color: #fff;
-}
-
-.form-searchbar .searchbar:focus {
-    width: 210px;
-    background-color: #fff;
-    border-color: #bec2bf;
-    box-shadow: 0 4rem 8rem rgba(255, 255, 255, .35);
-    padding-left: 32px;
-    color: #000;
-    background-color: #fff;
-    cursor: auto;
-}
-
-/* DISENO DE LAS CARDS */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.cards-container-wrapper {
-    margin: 10px 25px ;
-}
-
-.cards-container-wrapper:hover {
-    transform: translateY(-0.5%);
-    box-shadow: 0 4rem 8rem rgba(255, 255, 255, .35);
-    transition: 0.3s;
-}
-
-.card {
-    border: 1px solid black;
-    width: 260px;
-    height: 385px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-}
-
-.card-cover {
-    background-color: rgba(0, 0, 0, 0.8);
-    height: 160px;
-    margin: -12px 5px;
-    border-radius: 5px;
-}
-
-.card-cover figure img {
-    width: 150px;
-    margin-left: 10px;
-}
-
-.card-body {
-    padding: 15px 10px;
-}
-
-.card-title {
-    font-family: Lato, sans-serif;
-    font-weight: 400;
-}
-
-.card-title, .card-text {
-    margin-bottom: 10px;
-    color: black;
-}
-
-.card-text {
-    margin-top: 32px;
-    color: black;
-}
-
-.card-text p {
-    margin: 4px 0;
-    font-family: Lato, sans-serif;
-}
-
-.addButton {
-    border: none;
-    width: 220px;
-    height: 40px;
-    margin-left: 10px;
-    border-radius: 5px;
-    font-weight: 300;
-    font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.187);
-    color: rgb(58, 58, 58);
-    margin-top: 20px;
-}
-
-.addButton:hover{ 
-    background-color: rgb(150, 235, 160);
-    transition: .4s;
-    color: rgb(18, 99, 28);
-    cursor: pointer;
-}
-
-.addButton:focus {
-    outline: none;
+/* SECCION YOUR FLEET */
+.YourFleet {
+    background-image: url("./images/CloneTrooper_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    background-blend-mode: overlay;
+    background-size: cover;
+    color: white;
+    font-family: Lato; 
 }

@@ -1,0 +1,91 @@
+/* DISENO HEADER */
+.header {
+    background-color: black;
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    display: flex;
+    padding: 15px 0;
+    justify-content: space-between;
+    border-bottom: 3px solid #4A4949;
+}
+
+/* Logo */
+.logo{
+    margin-left: 80px;
+}
+
+.logo img {
+    display: block;
+    width: 104px;
+}
+
+.wars {
+    margin-top: 2px;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu li a:hover {
+    border-bottom: 2px solid white;
+    color: #e0e0e0;
+    transition: 0.1s;
+    font-size: 19px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    padding-bottom: 2px;
+}
+
+/* Searchbar */
+.search {
+    margin-top: 12px;
+    margin-right: 38px;
+}
+
+.searchbar {
+    font-size: 100%;
+    outline: none;
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+    border-radius: 10em;
+    transition: all .5s;
+    height: 30px;
+}
+
+.form-searchbar .searchbar {
+    width: 110px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+
+.form-searchbar .searchbar:hover {
+    background-color: #fff;
+}
+
+.form-searchbar .searchbar:focus {
+    width: 210px;
+    background-color: #fff;
+    border-color: #bec2bf;
+    box-shadow: 0 4rem 8rem rgba(255, 255, 255, .35);
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}

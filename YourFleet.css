@@ -29,12 +29,18 @@
 
 .selected-spaceship {
     margin-top: -2px;
-    height: 280px;
+    height: 220px;
+    display: flex;
+}
+
+.selected-spaceship-wrapper {
+    display: flex;
+    margin-top: -17px;
 }
 
 .selected-characters {
-    margin-top: 13px;
-    height: 305px;
+    margin-top: 55px;
+    height: 275px;
 }
 
 .wrapper {
@@ -56,7 +62,8 @@
 .selected-spaceship-details {
     /* border: 1px solid rgb(255, 3, 205); */
     height: 230px;
-    margin-top: -21px;
+    margin-top: -12px;
+    margin-right: 50px;
 }
 
 .selected-spaceship-details-img {
@@ -88,6 +95,7 @@
 
 .character-wrapper{
     /* border: 1px solid aquamarine; */
+    margin-top: -16px;
     width: 150px;
     margin-right: 20px;
 }
@@ -108,42 +116,24 @@
     background-color: rgba(34, 36, 40, 0.37);
 }
 
-.pick-your-crew-pagination {
-    list-style: none;
-    display: flex;
+.selected-spaceship.pagination {
     position: relative;
+    top: 21px;
+    left: 168px;
+    height: 20px;
+}
+
+.selected-characters.pagination {
+    position: relative;
+    top: -85px;
+    left: 210px;
+    height: 0px;
+    width: 300px;
+    padding: 0;
+}
+
+.pick-your-crew.pagination {
     left: 310px;
     top: 30px;
-}
-
-.page-item {
-    margin-right: 15px;
-}
-
-.page-item button {
-    background: none;
-    outline: none;
-    border: none;
-}
-
-.page-item button i {
-    color: white;
-    font-size: 30px;
-}
-
-.fa-arrow-right:hover{
-    transform: translateX(4px);
-    transition: .4s;
-}
-
-.fa-arrow-left:hover{
-    transform: translateX(-4px);
-    transition: .4s;
-}
-
-.selected-characters-pagination {
-    list-style: none;
-    display: flex;
-    position: relative;
-    left: 210px;
+    height: 0;
 }
