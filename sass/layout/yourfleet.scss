@@ -1,0 +1,161 @@
+.YourFleet {
+    background-image: url("/images/CloneTrooper_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    background-blend-mode: overlay;
+    background-size: cover;
+    color: white;
+    font-family: Lato; 
+
+    .pick {
+        display: flex;
+    }
+    
+    .selected, .pick-your-crew {
+        /* border: 2px solid red; */
+        height: 630px;
+        margin-top: 35px;
+        background-color: rgba(26, 28, 32, 0.5);
+    }
+    
+    .selected {
+        width: 45%;
+        background-color: rgba(26, 28, 32, 0.1);
+    }
+    
+    .pick-your-crew {
+        width: 55%;
+    }
+    
+    .pick-your-crew {
+        h2 {
+            text-align: center;
+        }
+    }
+    
+    .selected-spaceship, .selected-characters {
+        /* border: 2px solid blue; */
+        margin-left: 30px;
+    }
+    
+    .selected-spaceship {
+        margin-top: -2px;
+        height: 220px;
+        display: flex;
+    }
+    
+    .selected-spaceship-wrapper {
+        display: flex;
+        margin-top: -17px;
+    }
+    
+    .selected-characters {
+        margin-top: 55px;
+        height: 275px;
+    }
+    
+    .wrapper {
+        /* border: 1px solid greenyellow; */
+        height: 430px;
+        margin: 5px;
+    }
+    
+    .pick-your-crew-characters {
+        /* border: 1px solid yellow; */
+        height: 400px;
+        position: relative;
+        top: 50px;
+        margin: 0 30px;
+        padding: 0px 40px;
+        margin-top: -30px;
+    }
+    
+    .selected-spaceship-details {
+        /* border: 1px solid rgb(255, 3, 205); */
+        height: 230px;
+        margin-top: -12px;
+        margin-right: 50px;
+    }
+    
+    .selected-spaceship-details-img {
+        background-color: rgba(34, 36, 40, 0.37);
+    }
+    
+    .selected-spaceship-details-img,
+    .selected-characters-container {
+        /* border: 1px solid rgb(96, 250, 0); */
+        height: 190px;
+        margin-top: -13px;
+        width: 260px;
+    }
+    
+    .selected-spaceship-details-img {
+        figure {
+            position: relative;
+            right: 15px;
+            top: 25px;
+        }
+    }
+    
+    .selected-spaceship-details-img {
+        figure {
+            img {
+                width: 210px;
+            }
+        }
+    }
+    
+    .selected-characters-container {
+        width: 570px;
+        display: flex;
+    }
+    
+    .character-wrapper{
+        /* border: 1px solid aquamarine; */
+        margin-top: -16px;
+        width: 150px;
+        margin-right: 20px;
+    }
+    
+    .character {
+        /* border: 1px solid rgb(255, 225, 0); */
+        height: 130px;
+        width: 130px;
+    }
+    
+    .character {
+        figure {
+            position: relative;
+            right: 40px;
+            bottom: 13px;
+        }
+    }
+    .character {
+        figure {
+            img {
+                width: 120px;
+                background-color: rgba(34, 36, 40, 0.37);
+            }
+        }
+    }
+    
+    .selected-spaceship.pagination {
+        position: relative;
+        top: 21px;
+        left: 168px;
+        height: 20px;
+    }
+    
+    .selected-characters.pagination {
+        position: relative;
+        top: -85px;
+        left: 210px;
+        height: 0px;
+        width: 300px;
+        padding: 0;
+    }
+    
+    .pick-your-crew.pagination {
+        left: 310px;
+        top: 30px;
+        height: 0;
+    }    
+}

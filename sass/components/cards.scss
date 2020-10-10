@@ -46,11 +46,15 @@
     margin-left: 10px;
 }
 
-.starship.card .card-cover figure img {
-    position: relative;
-    top: 25px;
-    width: 170px;
-    margin-left: 10px;
+.starship.card {
+    .card-cover {
+        img {
+            position: relative;
+            top: 25px;
+            width: 170px;
+            margin-left: 10px;
+        }
+    }
 }
 
 .card-body {
@@ -72,9 +76,11 @@
     color: black;
 }
 
-.card-text p {
-    margin: 4px 0;
-    font-family: Lato, sans-serif;
+.card-text {
+    p {
+        margin: 4px 0;
+        font-family: Lato, sans-serif;
+    }
 }
 
 .addButton {

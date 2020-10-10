@@ -1,0 +1,14 @@
+{
+  "name": "parcial2_SASS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bluid": "node-sass -o -css sass",
+    "watch" : "node-sass -w -o sass",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -15,9 +15,11 @@
     margin-left: 80px;
 }
 
-.logo img {
-    display: block;
-    width: 104px;
+.logo {
+    img {
+        display: block;
+        width: 104px;
+    }
 }
 
 .wars {
@@ -25,14 +27,17 @@
 }
 
 /* Menu */
+
 .menu {
     list-style: none;
     display: flex;
     padding: 0;
 }
 
-.menu li {
-    margin: 0 10px;
+.menu {
+    li {
+        margin: 0 10px;
+    }
 }
 
 .menu li a:hover {
@@ -42,12 +47,16 @@
     font-size: 19px;
 }
 
-.menu li a {
-    text-decoration: none;
-    color: white;
-    font-family: Lato, sans-serif;
-    font-size: 18px;
-    padding-bottom: 2px;
+.menu {
+    li {
+        a {
+            text-decoration: none;
+            color: white;
+            font-family: Lato, sans-serif;
+            font-size: 18px;
+            padding-bottom: 2px;
+        }
+    }
 }
 
 /* Searchbar */
@@ -68,24 +77,30 @@
     height: 30px;
 }
 
-.form-searchbar .searchbar {
-    width: 110px;
-    padding-left: 10px;
-    color: transparent;
-    cursor: pointer;
+.form-searchbar {
+    .searchbar {
+        width: 110px;
+        padding-left: 10px;
+        color: transparent;
+        cursor: pointer;
+    }
 }
 
-.form-searchbar .searchbar:hover {
-    background-color: #fff;
+.form-searchbar {
+    .searchbar:hover {
+        background-color: white;
+    }
 }
 
-.form-searchbar .searchbar:focus {
-    width: 210px;
-    background-color: #fff;
-    border-color: #bec2bf;
-    box-shadow: 0 4rem 8rem rgba(255, 255, 255, .35);
-    padding-left: 32px;
-    color: #000;
-    background-color: #fff;
-    cursor: auto;
+.form-searchbar {
+    .searchbar:focus {
+        width: 210px;
+        background-color: white;
+        border-color: #bec2bf;
+        box-shadow: 0 4rem 8rem rgba(255, 255, 255, .35);
+        padding-left: 32px;
+        color: black;
+        background-color:  white;
+        cursor: auto;
+    }
 }
