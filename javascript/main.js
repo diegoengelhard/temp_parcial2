@@ -16,7 +16,7 @@ const createCard = (element) => {
             `<div class="character card">
             <div class="card-cover">
                 <figure>
-                    <img src="./images/trans1.png" alt="">
+                    <img src="../images/trans1.png" alt="">
                 </figure>
             </div>
             <div class="card-body">
@@ -41,7 +41,7 @@ const createCard = (element) => {
         `<div class="starship card">
             <div class="card-cover">
                 <figure>
-                    <img src="./images/falcon11.png" alt="">
+                    <img src="../images/falcon11.png" alt="">
                 </figure>
             </div>
             <div class="card-body">
