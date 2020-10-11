@@ -16,7 +16,7 @@ const createCard = (element) => {
             `<div class="character card">
             <div class="card-cover">
                 <figure>
-                    <img src="../images/trans1.png" alt="">
+                    <img src="/images/trans1.png" alt="">
                 </figure>
             </div>
             <div class="card-body">
@@ -41,7 +41,7 @@ const createCard = (element) => {
         `<div class="starship card">
             <div class="card-cover">
                 <figure>
-                    <img src="../images/falcon11.png" alt="">
+                    <img src="/images/falcon11.png" alt="">
                 </figure>
             </div>
             <div class="card-body">
@@ -101,6 +101,25 @@ const getStarships = async() => {
     return resultList;
 }
 
+const getCharacters = async() => {
+    let resultList = [];
+    let i = data.offset_characters;
+    const api = baseAPI + "/people/";
+    let index = i + 1;
+    for(i; i < data.offset_characters + 5; i = i + 1){
+        let finalURL = api + index;
+        let data = null;
+        while(data == null || data.detail){
+            data = await fetch(finalURL).then(response => response.json());
+            index = index + 1;
+            finalURL = api + index;
+        }
+        resultList.push(data);
+    }
+    data.offset_characters = i;
+    return resultList;
+}
+
 /**
  * Starting point for the app.
  */
@@ -122,12 +141,18 @@ const App = () => {
 
     let pageType = document.getElementsByClassName('Discover');
     if(pageType.length >= 1){
+        const containShips = document.querySelector('.ships-container');
+        const ships = getStarships().then(response => showList(response, containShips));
+        const containChar = document.querySelector('.character-container');
+        const chars = getCharacters().then(response => showList(response, containChar));
         console.log('Entered Discover start up');
         return;
     }
 
     pageType = document.getElementsByClassName('Characters');
     if(pageType.length >= 1){
+        const container = document.querySelector('.cards-container-wrapper');
+        const list = getCharacters().then(response => showList(response, container))
         console.log('Entered Characters start up');
         return;
     }
