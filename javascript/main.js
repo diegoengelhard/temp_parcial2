@@ -120,7 +120,7 @@ const getStarships = async () => {
     let i = data.offset_starships;
     const api = baseAPI + "/starships/";
     let index = i + 1;
-    for (i; i < data.offset_starships + 5; i = i + 1) {
+    for (i; i < data.offset_starships + 4; i = i + 1) {
         let finalURL = api + index;
         let data = null;
         while (data == null || data.detail) {
@@ -142,7 +142,7 @@ const getCharacters = async () => {
     let i = data.offset_characters;
     const api = baseAPI + "/people/";
     let index = i + 1;
-    for (i; i < data.offset_characters + 5; i = i + 1) {
+    for (i; i < data.offset_characters + 4; i = i + 1) {
         let finalURL = api + index;
         let data = null;
         while (data == null || data.detail) {

@@ -7,6 +7,7 @@
 .cards-container-wrapper {
     margin: 10px 25px ;
     display: inherit;
+    flex-wrap: wrap;
 }
 
 /* .cards-container-wrapper:hover {
@@ -22,10 +23,11 @@
     border-radius: 5px;
     background-color: whitesmoke;
     margin-right: 40px;
+    margin-bottom: 20px;
 }
 
 .starship.card {
-    height: 360px;
+    height: 380px;
 }
 
 .card:hover {
