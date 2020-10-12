@@ -206,6 +206,25 @@ const getFleetChars = (spaceship) => {
     console.log('Exiting getFleetChars');
 }
 
+const getFleetPick = async () => {
+    let resultList = [];
+    let i = data.offset_characters;
+    const api = baseAPI + "/people/";
+    let index = i + 1;
+    for (i; i < data.offset_characters + 2; i = i + 1) {
+        let finalURL = api + index;
+        let data = null;
+        while (data == null || data.detail) {
+            data = await fetch(finalURL).then(response => response.json());
+            index = index + 1;
+            finalURL = api + index;
+        }
+        resultList.push(data);
+    }
+    data.offset_characters = i;
+    return resultList;
+}
+
 const buttonEventAdd = (element, list) => {
     let check = false;
     list.forEach(item => {
@@ -393,7 +412,7 @@ const App = () => {
             getFleetChars(JSON.parse(selection.dataset.starship));
         }
         container = document.querySelector('.cards-container-wrapper');
-        const list = getCharacters().then(response => showList(response, container));
+        const list = getFleetPick().then(response => showList(response, container));
         addListeners();
         return;
     }
