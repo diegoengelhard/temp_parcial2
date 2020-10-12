@@ -346,7 +346,7 @@ table {
     width: 45%;
     background-color: rgba(26, 28, 32, 0.1); }
   .YourFleet .pick-your-crew {
-    width: 55%; }
+    width: 60%; }
   .YourFleet .pick-your-crew h2 {
     text-align: center; }
   .YourFleet .selected-spaceship, .YourFleet .selected-characters {
@@ -401,7 +401,7 @@ table {
     margin-top: -16px;
     width: 150px;
     margin-right: 20px; }
-  .YourFleet .character {
+  .YourFleet .pick-character {
     /* border: 1px solid rgb(255, 225, 0); */
     height: 130px;
     width: 130px; }

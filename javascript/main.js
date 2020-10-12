@@ -82,7 +82,7 @@ const createWrapper = (element) => {
         wrapper.classList = "character-wrapper";
         let content =
             `<p>${element.name}</p>
-            <div class="character removeButton" data-character='${JSON.stringify(element)}'>
+            <div class="pick-character removeButton" data-character='${JSON.stringify(element)}'>
                 <figure>
                     <img src="/images/trans1.png" alt="">
                 </figure>
