@@ -85,6 +85,30 @@
     }
 }
 
+.pick-character {
+    figure {
+        img {
+            width: 130px;
+            position: relative;
+            right: 40px;
+        }  
+    }
+}
+
+.pick-your-crew-characters {
+    .card-cover {
+        figure {
+            img{
+                width: 145px !important;
+                position: relative;
+                left: 40px;
+                top: 20px;
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+
 .addButton, .removeButton {
     border: none;
     width: 220px;
