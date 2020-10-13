@@ -61,6 +61,10 @@ const createCard = (element) => {
     }
 }
 
+/**
+ * Creates a special element for the YourFleet page
+ * @param {object} element 
+ */
 const createWrapper = (element) => {
     if (element.url.includes('starships')) {
         let wrapper = document.createElement('div');
@@ -130,7 +134,7 @@ const getStarships = async () => {
         }
         resultList.push(data);
     }
-    data.offset_starships = i;
+    //data.offset_starships = i;
     return resultList;
 }
 
@@ -152,7 +156,7 @@ const getCharacters = async () => {
         }
         resultList.push(data);
     }
-    data.offset_characters = i;
+    //data.offset_characters = i;
     return resultList;
 }
 
@@ -184,6 +188,8 @@ const getFleetShips = (container) => {
 const getFleetChars = (spaceship) => {
     let i = 0;
     let list = [];
+    let container = document.querySelector('.selected-characters-container');
+    container.innerHTML = ``;
     if (data.usrChar.length >= 1) {
         data.usrChar.forEach(crew => {
             if (crew.starship.name == spaceship.name) {
@@ -192,20 +198,23 @@ const getFleetChars = (spaceship) => {
             };
             if (i % 4 == 0) {
                 list.forEach(item => {
-                    document.querySelector('.selected-characters-container').appendChild(item);
+                    container.appendChild(item);
                 })
                 return;
             }
         })
         if (list.length >= 1) {
             list.forEach(item => {
-                document.querySelector('.selected-characters-container').appendChild(item);
+                container.appendChild(item);
             })
         }
     }
     console.log('Exiting getFleetChars');
 }
 
+/**
+ * Obtains the list for the YourFleet selected ships
+ */
 const getFleetPick = async () => {
     let resultList = [];
     let i = data.offset_characters;
@@ -221,64 +230,77 @@ const getFleetPick = async () => {
         }
         resultList.push(data);
     }
-    data.offset_characters = i;
+    //data.offset_characters = i;
     return resultList;
 }
 
 const buttonEventAdd = (element, list) => {
     let check = false;
     list.forEach(item => {
-        if (item.name == element.name) check = true;
+        if(item.character && element.character){
+            if (item.character.name == element.character.name) check = true;
+        }
+        else if (item.name == element.name) check = true;
     })
     if (check) {
-        buttonEventRemove(element, list)
+        buttonEventRemove(element, list);
+        return;
     }
     list.push(element);
     saveData();
     const flag = document.getElementsByClassName('YourFleet');
     if (flag.length >= 1) {
-        console.log('Editing your fleet');
+        console.log('Adding to your fleet');
         let container = document.querySelector('.selected-spaceship');
         getFleetShips(container);
         let selection = document.getElementsByClassName('selected-spaceship-details');
         if (selection.length >= 1) {
-            selection = document.querySelector('.selected-spaceship-details');
-            selection.classList = 'selected-spaceship-details current-selection';
-            getFleetChars(JSON.parse(selection.dataset.starship));
+            yourFleet();
         }
-        container = document.querySelector('.cards-container-wrapper');
-        showList(i = [info], container);
+        //container = document.querySelector('.cards-container-wrapper');
+        //showList(i = [info], container);
         console.log('Finished second onload');
+        document.querySelectorAll(".addButton")
+        .forEach(element => {
+            if(element.classList.contains(element.name)){
+                element.classList = `removeButton ${element.name}`;
+                element.innerText = "Remove -"
+            }
+        })
     }
 }
 
 const buttonEventRemove = (element, list) => {
-    const index = list.findIndex(item => item.name == element.name);
+    let check = false;
+    list.forEach(item => {
+        if(item.character && element.character){
+            if (item.character.name == element.character.name) check = true;
+        }
+    })
+    let index = null;
+    if(check){
+        index = list.findIndex(item => item.character.name == element.character.name);
+    }
+    else{
+        index = list.findIndex(item => item.name == element.name);
+    }
     if (index >= 0) {
         list.splice(index, 1);
     }
     else {
         console.log("Element to be removed was not in list")
     }
-    document.querySelectorAll(".removeButton." + element.name)
-        .forEach(char => {
-            char.classList = `addButton ${element.name}`;
-            char.innerText = "Remove -"
+    document.querySelectorAll(".removeButton")
+        .forEach(element => {
+            if(element.classList.contains(element.name)){
+                element.classList = `addButton ${element.name}`;
+                element.innerText = "Add +"
+            }
         })
     saveData();
     const flag = document.getElementsByClassName('YourFleet');
     if (flag.length >= 1) {
-        console.log('Editing your fleet');
-        let container = document.querySelector('.selected-spaceship');
-        getFleetShips(container);
-        let selection = document.getElementsByClassName('selected-spaceship-details');
-        if (selection.length >= 1) {
-            selection = document.querySelector('.selected-spaceship-details');
-            selection.classList = 'selected-spaceship-details current-selection';
-            getFleetChars(JSON.parse(selection.dataset.starship));
-        }
-        container = document.querySelector('.cards-container-wrapper');
-        showList(i = [info], container);
+        yourFleet();
         console.log('Finished second onload');
     }
 }
@@ -296,6 +318,9 @@ const cardButtonListener = () => {
             if (info.url.includes('people')) {
                 let check = document.getElementsByClassName('YourFleet');
                 if (check.length >= 1) {
+                    if(!document.querySelector('.current-selection')){
+                        return;
+                    }
                     let spaceship = JSON.parse(document.querySelector('.current-selection').dataset.starship);
                     let element = {
                         starship: spaceship,
@@ -327,9 +352,55 @@ const cardButtonListener = () => {
                 buttonEventAdd(info, data.usrShips);
             }
         }
+        else if (target.classList.contains('removeButton')){
+            e.preventDefault();
+            if (target.dataset.starship)
+                info = JSON.parse(target.dataset.starship);
+            if (!target.dataset.starship)
+                info = JSON.parse(target.dataset.character)
+            if (info.url.includes('people')) {
+                let check = document.getElementsByClassName('YourFleet');
+                if (check.length >= 1) {
+                    if(!document.querySelector('.current-selection')){
+                        return;
+                    }
+                    let spaceship = JSON.parse(document.querySelector('.current-selection').dataset.starship);
+                    let element = {
+                        starship: spaceship,
+                        character: info,
+                    }
+                    buttonEventRemove(element, data.usrChar);
+                }
+                else {
+                    var oldOnLoad = window.onload;
+                    window.onload = () => {
+                        console.log('Editing your fleet');
+                        let container = document.querySelector('.selected-spaceship');
+                        getFleetShips(container);
+                        let selection = document.getElementsByClassName('selected-spaceship-details');
+                        if (selection.length >= 1) {
+                            selection = document.querySelector('.selected-spaceship-details');
+                            selection.classList = 'selected-spaceship-details current-selection';
+                            getFleetChars(JSON.parse(selection.dataset.starship));
+                        }
+                        container = document.querySelector('.cards-container-wrapper');
+                        showList(i = [info], container);
+                        console.log('Finished second onload');
+                    };
+                    window.location.href = "/html/yourfleet.html";
+                    window.onload = oldOnLoad;
+                }
+            }
+            else if (info.url.includes('starships')) {
+                buttonEventRemove(info, data.usrShips);
+            }
+        }
     })
 }
 
+/**
+ * Adds a listener to change the currently selected starship
+ */
 const fleetSpaceshipListener = () => {
     document.addEventListener('click', e => {
         let target = e.target;
@@ -346,9 +417,29 @@ const fleetSpaceshipListener = () => {
     })
 }
 
+/**
+ * Adds all necessary listeners
+ */
 const addListeners = () => {
     cardButtonListener();
     fleetSpaceshipListener();
+}
+
+/**
+ * 
+ */
+const yourFleet = () => {
+    console.log('Editing your fleet');
+        let container = document.querySelector('.selected-spaceship');
+        getFleetShips(container);
+        let selection = document.getElementsByClassName('selected-spaceship-details');
+        if (selection.length >= 1) {
+            selection = document.querySelector('.selected-spaceship-details');
+            selection.classList = 'selected-spaceship-details current-selection';
+            getFleetChars(JSON.parse(selection.dataset.starship));
+        }
+        container = document.querySelector('.cards-container-wrapper');
+        const list = getFleetPick().then(response => showList(response, container));
 }
 
 /**
@@ -402,17 +493,7 @@ const App = () => {
 
     pageType = document.getElementsByClassName('YourFleet');
     if (pageType.length >= 1) {
-        console.log('Editing your fleet');
-        let container = document.querySelector('.selected-spaceship');
-        getFleetShips(container);
-        let selection = document.getElementsByClassName('selected-spaceship-details');
-        if (selection.length >= 1) {
-            selection = document.querySelector('.selected-spaceship-details');
-            selection.classList = 'selected-spaceship-details current-selection';
-            getFleetChars(JSON.parse(selection.dataset.starship));
-        }
-        container = document.querySelector('.cards-container-wrapper');
-        const list = getFleetPick().then(response => showList(response, container));
+        yourFleet();
         addListeners();
         return;
     }
