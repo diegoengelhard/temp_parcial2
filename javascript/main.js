@@ -237,7 +237,7 @@ const getFleetPick = async () => {
 const buttonEventAdd = (element, list) => {
     let check = false;
     list.forEach(item => {
-        if(item.character && element.character){
+        if (item.character && element.character) {
             if (item.character.name == element.character.name) check = true;
         }
         else if (item.name == element.name) check = true;
@@ -261,27 +261,30 @@ const buttonEventAdd = (element, list) => {
         //showList(i = [info], container);
         console.log('Finished second onload');
         document.querySelectorAll(".addButton")
-        .forEach(element => {
-            if(element.classList.contains(element.name)){
-                element.classList = `removeButton ${element.name}`;
-                element.innerText = "Remove -"
-            }
-        })
+            .forEach(element => {
+                if (element.classList.contains(element.name)) {
+                    element.classList = `removeButton ${element.name}`;
+                    element.innerText = "Remove -"
+                }
+            })
+    }
+    else {
+
     }
 }
 
 const buttonEventRemove = (element, list) => {
     let check = false;
     list.forEach(item => {
-        if(item.character && element.character){
+        if (item.character && element.character) {
             if (item.character.name == element.character.name) check = true;
         }
     })
     let index = null;
-    if(check){
+    if (check) {
         index = list.findIndex(item => item.character.name == element.character.name);
     }
-    else{
+    else {
         index = list.findIndex(item => item.name == element.name);
     }
     if (index >= 0) {
@@ -292,7 +295,7 @@ const buttonEventRemove = (element, list) => {
     }
     document.querySelectorAll(".removeButton")
         .forEach(element => {
-            if(element.classList.contains(element.name)){
+            if (element.classList.contains(element.name)) {
                 element.classList = `addButton ${element.name}`;
                 element.innerText = "Add +"
             }
@@ -318,7 +321,7 @@ const cardButtonListener = () => {
             if (info.url.includes('people')) {
                 let check = document.getElementsByClassName('YourFleet');
                 if (check.length >= 1) {
-                    if(!document.querySelector('.current-selection')){
+                    if (!document.querySelector('.current-selection')) {
                         return;
                     }
                     let spaceship = JSON.parse(document.querySelector('.current-selection').dataset.starship);
@@ -349,10 +352,18 @@ const cardButtonListener = () => {
                 }
             }
             else if (info.url.includes('starships')) {
+                let pageType = document.getElementsByClassName('Discover');
+                if (pageType.length >= 1) {
+                    discover();
+                }
+                pageType = document.getElementsByClassName('Starships');
+                if (pageType.length >= 1) {
+                    starShips();
+                }
                 buttonEventAdd(info, data.usrShips);
             }
         }
-        else if (target.classList.contains('removeButton')){
+        else if (target.classList.contains('removeButton')) {
             e.preventDefault();
             if (target.dataset.starship)
                 info = JSON.parse(target.dataset.starship);
@@ -361,7 +372,7 @@ const cardButtonListener = () => {
             if (info.url.includes('people')) {
                 let check = document.getElementsByClassName('YourFleet');
                 if (check.length >= 1) {
-                    if(!document.querySelector('.current-selection')){
+                    if (!document.querySelector('.current-selection')) {
                         return;
                     }
                     let spaceship = JSON.parse(document.querySelector('.current-selection').dataset.starship);
@@ -393,6 +404,14 @@ const cardButtonListener = () => {
             }
             else if (info.url.includes('starships')) {
                 buttonEventRemove(info, data.usrShips);
+                let pageType = document.getElementsByClassName('Discover');
+                if (pageType.length >= 1) {
+                    discover();
+                }
+                pageType = document.getElementsByClassName('Starships');
+                if (pageType.length >= 1) {
+                    starShips();
+                }
             }
         }
     })
@@ -426,20 +445,50 @@ const addListeners = () => {
 }
 
 /**
- * 
+ * Loading up your fleet html
  */
 const yourFleet = () => {
     console.log('Editing your fleet');
-        let container = document.querySelector('.selected-spaceship');
-        getFleetShips(container);
-        let selection = document.getElementsByClassName('selected-spaceship-details');
-        if (selection.length >= 1) {
-            selection = document.querySelector('.selected-spaceship-details');
-            selection.classList = 'selected-spaceship-details current-selection';
-            getFleetChars(JSON.parse(selection.dataset.starship));
-        }
-        container = document.querySelector('.cards-container-wrapper');
-        const list = getFleetPick().then(response => showList(response, container));
+    let container = document.querySelector('.selected-spaceship');
+    getFleetShips(container);
+    let selection = document.getElementsByClassName('selected-spaceship-details');
+    if (selection.length >= 1) {
+        selection = document.querySelector('.selected-spaceship-details');
+        selection.classList = 'selected-spaceship-details current-selection';
+        getFleetChars(JSON.parse(selection.dataset.starship));
+    }
+    container = document.querySelector('.cards-container-wrapper');
+    const list = getFleetPick().then(response => showList(response, container));
+}
+
+/**
+ * Loading up Discovery HTML
+ */
+
+const discover = () => {
+    const containShips = document.querySelector('.ships-container');
+    const ships = getStarships().then(response => showList(response, containShips));
+    const containChar = document.querySelector('.character-container');
+    const chars = getCharacters().then(response => showList(response, containChar));
+    console.log('Entered Discover start up');
+}
+
+/**
+ * Loading up Starship HTML
+ */
+const starShips = () => {
+    console.log('Entered Starships start up');
+    const container = document.querySelector('.cards-container-wrapper');
+    const list = getStarships().then(response => showList(response, container));
+}
+
+/**
+ * Loading up Characters HTML
+ */
+const characters = () => {
+    console.log('Entered Characters start up');
+    const container = document.querySelector('.cards-container-wrapper');
+    const list = getCharacters().then(response => showList(response, container));
 }
 
 /**
@@ -464,29 +513,21 @@ const App = () => {
 
     let pageType = document.getElementsByClassName('Discover');
     if (pageType.length >= 1) {
-        const containShips = document.querySelector('.ships-container');
-        const ships = getStarships().then(response => showList(response, containShips));
-        const containChar = document.querySelector('.character-container');
-        const chars = getCharacters().then(response => showList(response, containChar));
-        console.log('Entered Discover start up');
+        discover();
         addListeners();
         return;
     }
 
     pageType = document.getElementsByClassName('Characters');
     if (pageType.length >= 1) {
-        const container = document.querySelector('.cards-container-wrapper');
-        const list = getCharacters().then(response => showList(response, container))
-        console.log('Entered Characters start up');
+        characters();
         addListeners();
         return;
     }
 
     pageType = document.getElementsByClassName('Starships');
     if (pageType.length >= 1) {
-        console.log('Entered Starships start up');
-        const container = document.querySelector('.cards-container-wrapper');
-        const list = getStarships().then(response => showList(response, container));
+        starShips();
         addListeners();
         return;
     }
