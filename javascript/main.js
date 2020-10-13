@@ -456,161 +456,263 @@ const fleetSpaceshipListener = () => {
 const paginationListener = () => {
     document.addEventListener('click', e => {
         let target = e.target;
-        if (target.classList.contains('previous-page')){
-            if(target.classList.contains('pick-crew-previous')){
-                if(data.offset_characters <= 2){
+        if (target.classList.contains('previous-page')) {
+            if (target.classList.contains('pick-crew-previous')) {
+                if (data.offset_characters <= 2) {
                     data.offset_characters = 0;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters - 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('selected-character-previous')){
-                if(data.offset_usrChars <= 2){
+            else if (target.classList.contains('selected-character-previous')) {
+                if (data.offset_usrChars <= 2) {
                     data.offset_usrChars = 0;
                 }
-                else{
+                else {
                     data.offset_usrChars = data.offset_usrChars - 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('selected-spaceship-previous')){
-                if(data.offset_usrShips <= 2){
+            else if (target.classList.contains('selected-spaceship-previous')) {
+                if (data.offset_usrShips <= 2) {
                     data.offset_usrShips = 0;
                 }
-                else{
+                else {
                     data.offset_usrShips = data.offset_usrShips - 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('previous-characters')){
-                if(data.offset_characters <= 4){
+            else if (target.classList.contains('previous-characters')) {
+                if (data.offset_characters <= 4) {
                     data.offset_characters = 0;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters - 4;
                 }
                 saveData();
                 characters();
             }
-            else if(target.classList.contains('previous-characters-discover')){
-                if(data.offset_characters <= 4){
+            else if (target.classList.contains('previous-characters-discover')) {
+                if (data.offset_characters <= 4) {
                     data.offset_characters = 0;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters - 4;
                 }
                 saveData();
                 discover();
             }
-            else if(target.classList.contains('previous-starships')){
-                if(data.offset_starships <= 4){
+            else if (target.classList.contains('previous-starships')) {
+                if (data.offset_starships <= 4) {
                     data.offset_starships = 0;
                 }
-                else{
+                else {
                     data.offset_starships = data.offset_starships - 4;
                 }
                 saveData();
                 starShips();
             }
-            else if(target.classList.contains('previous-starships-discover')){
-                if(data.offset_starships <= 4){
+            else if (target.classList.contains('previous-starships-discover')) {
+                if (data.offset_starships <= 4) {
                     data.offset_starships = 0;
                 }
-                else{
+                else {
                     data.offset_starships = data.offset_starships - 4;
                 }
                 saveData();
                 discover();
             }
-            else{
+            else {
                 return;
             }
         }
-        else if(target.classList.contains('next-page')){
-            if(target.classList.contains('pick-crew-next')){
-                if(data.offset_characters <= 82 && data.offset_characters >= 80){
+        else if (target.classList.contains('next-page')) {
+            if (target.classList.contains('pick-crew-next')) {
+                if (data.offset_characters <= 82 && data.offset_characters >= 80) {
                     data.offset_characters = 80;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters + 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('selected-character-next')){
-                if(data.offset_usrChars <= data.usrChar.length - 1 && data.offset_usrChars >= data.usrChar.length - 3){
+            else if (target.classList.contains('selected-character-next')) {
+                if (data.offset_usrChars <= data.usrChar.length - 1 && data.offset_usrChars >= data.usrChar.length - 3) {
                     data.offset_usrShips = data.usrChar.length - 3;
                 }
-                else if(data.offset_usrChars == data.usrChar.length - 1){
+                else if (data.offset_usrChars == data.usrChar.length - 1) {
                     data.offset_usrChars = data.usrChar.length - 3;
                 }
-                else{
+                else {
                     data.offset_usrShips = data.offset_usrShips + 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('selected-spaceship-next')){
-                if(data.offset_usrShips <= data.usrShips.length - 1 && data.offset_usrShips >= data.usrShips.length - 3){
+            else if (target.classList.contains('selected-spaceship-next')) {
+                if (data.offset_usrShips <= data.usrShips.length - 1 && data.offset_usrShips >= data.usrShips.length - 3) {
                     data.offset_usrShips = data.usrShips.length - 3;
                 }
-                else if(data.offset_usrShips == data.usrShips.length - 1){
+                else if (data.offset_usrShips == data.usrShips.length - 1) {
                     data.offset_usrShips = data.usrShips.length - 3;
                 }
-                else{
+                else {
                     data.offset_usrShips += 2;
                 }
                 saveData();
                 yourFleet();
             }
-            else if(target.classList.contains('next-characters')){
-                if(data.offset_characters <= 82 && data.offset_characters >= 76){
+            else if (target.classList.contains('next-characters')) {
+                if (data.offset_characters <= 82 && data.offset_characters >= 76) {
                     data.offset_characters = 79;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters + 4;
                 }
                 saveData();
                 characters();
             }
-            else if(target.classList.contains('next-characters-discover')){
-                if(data.offset_characters <= 82 && data.offset_characters >= 76){
+            else if (target.classList.contains('next-characters-discover')) {
+                if (data.offset_characters <= 82 && data.offset_characters >= 76) {
                     data.offset_characters = 79;
                 }
-                else{
+                else {
                     data.offset_characters = data.offset_characters + 4;
                 }
                 saveData();
                 discover();
             }
-            else if(target.classList.contains('next-starships')){
-                if(data.offset_starships <= 75 && data.offset_starships >= 64){
+            else if (target.classList.contains('next-starships')) {
+                if (data.offset_starships <= 75 && data.offset_starships >= 64) {
                     data.offset_starships = 64;
                 }
-                else{
+                else {
                     data.offset_starships = data.offset_starships + 4;
                 }
                 saveData();
                 starShips();
             }
-            else if(target.classList.contains('next-starships-discover')){
-                if(data.offset_starships <= 75 && data.offset_starships >= 64){
+            else if (target.classList.contains('next-starships-discover')) {
+                if (data.offset_starships <= 75 && data.offset_starships >= 64) {
                     data.offset_starships = 64;
                 }
-                else{
+                else {
                     data.offset_starships = data.offset_starships + 4;
                 }
                 saveData();
                 discover();
             }
-            else{
+            else {
                 return;
             }
+        }
+    })
+}
+
+/**
+ * 
+ */
+const searchListener = () => {
+    document.forms.search.addEventListener('submit', async(e) => {
+        e.preventDefault();
+        let input = document.forms.search.querySelector('input');
+        let list = [];
+        let pageType = document.getElementsByClassName('Discover');
+        if (pageType.length >= 1) {
+            let query = baseAPI + "/people/?search=" + input.value;
+            let response = await fetch(query).then(response => response.json());
+            if(response.results.length > 0){
+                let container = document.querySelector('.character-container');
+                let i = 0;
+                    response.results.forEach(item => {
+                        if(i == 4){}
+                        else{
+                            list.push((item));
+                            i++
+                        }
+                    });
+                    showList(list, container);
+            }
+            else{
+                query = baseAPI + "/starships/?search=" + input.value;
+                response = await fetch(query).then(response => response.json());
+                if(response.results.length > 0){
+                    let container = document.querySelector('.ships-container');
+                    let i = 0;
+                    response.results.forEach(item => {
+                        if(i == 4){}
+                        else{
+                            list.push((item));
+                            i++
+                        }
+                    });
+                    showList(list, container);
+                }
+            }
+            return;
+        }
+
+        pageType = document.getElementsByClassName('Characters');
+        if (pageType.length >= 1) {
+            let query = baseAPI + "/people/?search=" + input.value;
+            let response = await fetch(query).then(response => response.json());
+            if(response.results.length > 0){
+                let container = document.querySelector('.cards-container-wrapper');
+                let i = 0;
+                    response.results.forEach(item => {
+                        if(i == 4){}
+                        else{
+                            list.push((item));
+                            i++
+                        }
+                    });
+                    showList(list, container);
+            }
+            return;
+        }
+
+        pageType = document.getElementsByClassName('Starships');
+        if (pageType.length >= 1) {
+                let query = baseAPI + "/starships/?search=" + input.value;
+                let response = await fetch(query).then(response => response.json());
+                if(response.results.length > 0){
+                    let container = document.querySelector('.cards-container-wrapper');
+                    let i = 0;
+                    response.results.forEach(item => {
+                        if(i == 4){}
+                        else{
+                            list.push((item));
+                            i++
+                        }
+                    });
+                    showList(list, container);
+                }
+            return;
+        }
+
+        pageType = document.getElementsByClassName('YourFleet');
+        if (pageType.length >= 1) {
+            let query = baseAPI + "/people/?search=" + input.value;
+            let response = await fetch(query).then(response => response.json());
+            if(response.results.length > 0){
+                let container = document.querySelector('.cards-container-wrapper');
+                let i = 0;
+                    response.results.forEach(item => {
+                        if(i == 4){}
+                        else{
+                            list.push((item));
+                            i++
+                        }
+                    });
+                    showList(list, container);
+            }
+            return;
         }
     })
 }
@@ -622,6 +724,7 @@ const addListeners = () => {
     cardButtonListener();
     fleetSpaceshipListener();
     paginationListener();
+    searchListener();
 }
 
 /**
