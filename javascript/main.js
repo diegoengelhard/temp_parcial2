@@ -234,6 +234,11 @@ const getFleetPick = async () => {
     return resultList;
 }
 
+/**
+ * Adds the object from the corresponding data list
+ * @param {object} element 
+ * @param {array} list 
+ */
 const buttonEventAdd = (element, list) => {
     let check = false;
     list.forEach(item => {
@@ -243,6 +248,7 @@ const buttonEventAdd = (element, list) => {
         else if (item.name == element.name) check = true;
     })
     if (check) {
+        //This is here just in case the button doesn't update for some reason, it shouldn't execute normally
         buttonEventRemove(element, list);
         return;
     }
@@ -273,6 +279,11 @@ const buttonEventAdd = (element, list) => {
     }
 }
 
+/**
+ * Removes the object from the corresponding data list
+ * @param {object} element 
+ * @param {array} list 
+ */
 const buttonEventRemove = (element, list) => {
     let check = false;
     list.forEach(item => {
@@ -308,6 +319,9 @@ const buttonEventRemove = (element, list) => {
     }
 }
 
+/**
+ * Adds a listener to add functionality to add and remove buttons alike
+ */
 const cardButtonListener = () => {
     document.addEventListener('click', e => {
         let target = e.target;
@@ -437,11 +451,177 @@ const fleetSpaceshipListener = () => {
 }
 
 /**
+ * Adds a listener to all pagination elements
+ */
+const paginationListener = () => {
+    document.addEventListener('click', e => {
+        let target = e.target;
+        if (target.classList.contains('previous-page')){
+            if(target.classList.contains('pick-crew-previous')){
+                if(data.offset_characters <= 2){
+                    data.offset_characters = 0;
+                }
+                else{
+                    data.offset_characters = data.offset_characters - 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('selected-character-previous')){
+                if(data.offset_usrChars <= 2){
+                    data.offset_usrChars = 0;
+                }
+                else{
+                    data.offset_usrChars = data.offset_usrChars - 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('selected-spaceship-previous')){
+                if(data.offset_usrShips <= 2){
+                    data.offset_usrShips = 0;
+                }
+                else{
+                    data.offset_usrShips = data.offset_usrShips - 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('previous-characters')){
+                if(data.offset_characters <= 4){
+                    data.offset_characters = 0;
+                }
+                else{
+                    data.offset_characters = data.offset_characters - 4;
+                }
+                saveData();
+                characters();
+            }
+            else if(target.classList.contains('previous-characters-discover')){
+                if(data.offset_characters <= 4){
+                    data.offset_characters = 0;
+                }
+                else{
+                    data.offset_characters = data.offset_characters - 4;
+                }
+                saveData();
+                discover();
+            }
+            else if(target.classList.contains('previous-starships')){
+                if(data.offset_starships <= 4){
+                    data.offset_starships = 0;
+                }
+                else{
+                    data.offset_starships = data.offset_starships - 4;
+                }
+                saveData();
+                starShips();
+            }
+            else if(target.classList.contains('previous-starships-discover')){
+                if(data.offset_starships <= 4){
+                    data.offset_starships = 0;
+                }
+                else{
+                    data.offset_starships = data.offset_starships - 4;
+                }
+                saveData();
+                discover();
+            }
+            else{
+                return;
+            }
+        }
+        else if(target.classList.contains('next-page')){
+            if(target.classList.contains('pick-crew-next')){
+                if(data.offset_characters <= 82 && data.offset_characters >= 80){
+                    data.offset_characters = 80;
+                }
+                else{
+                    data.offset_characters = data.offset_characters + 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('selected-character-next')){
+                if(data.offset_usrChars <= data.usrChar.length - 1 && data.offset_usrChars >= data.usrChar.length - 3){
+                    data.offset_usrShips = data.usrChar.length - 3;
+                }
+                else if(data.offset_usrChars == data.usrChar.length - 1){
+                    data.offset_usrChars = data.usrChar.length - 3;
+                }
+                else{
+                    data.offset_usrShips = data.offset_usrShips + 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('selected-spaceship-next')){
+                if(data.offset_usrShips <= data.usrShips.length - 1 && data.offset_usrShips >= data.usrShips.length - 3){
+                    data.offset_usrShips = data.usrShips.length - 3;
+                }
+                else if(data.offset_usrShips == data.usrShips.length - 1){
+                    data.offset_usrShips = data.usrShips.length - 3;
+                }
+                else{
+                    data.offset_usrShips += 2;
+                }
+                saveData();
+                yourFleet();
+            }
+            else if(target.classList.contains('next-characters')){
+                if(data.offset_characters <= 82 && data.offset_characters >= 76){
+                    data.offset_characters = 79;
+                }
+                else{
+                    data.offset_characters = data.offset_characters + 4;
+                }
+                saveData();
+                characters();
+            }
+            else if(target.classList.contains('next-characters-discover')){
+                if(data.offset_characters <= 82 && data.offset_characters >= 76){
+                    data.offset_characters = 79;
+                }
+                else{
+                    data.offset_characters = data.offset_characters + 4;
+                }
+                saveData();
+                discover();
+            }
+            else if(target.classList.contains('next-starships')){
+                if(data.offset_starships <= 75 && data.offset_starships >= 64){
+                    data.offset_starships = 64;
+                }
+                else{
+                    data.offset_starships = data.offset_starships + 4;
+                }
+                saveData();
+                starShips();
+            }
+            else if(target.classList.contains('next-starships-discover')){
+                if(data.offset_starships <= 75 && data.offset_starships >= 64){
+                    data.offset_starships = 64;
+                }
+                else{
+                    data.offset_starships = data.offset_starships + 4;
+                }
+                saveData();
+                discover();
+            }
+            else{
+                return;
+            }
+        }
+    })
+}
+
+/**
  * Adds all necessary listeners
  */
 const addListeners = () => {
     cardButtonListener();
     fleetSpaceshipListener();
+    paginationListener();
 }
 
 /**
@@ -503,7 +683,7 @@ const App = () => {
         data = {
             usrShips: [],
             usrChar: [],
-            offset_starships: 1,
+            offset_starships: 0,
             offset_characters: 0,
             offset_fleet_ships: 0,
             offset_usrShips: 0,
