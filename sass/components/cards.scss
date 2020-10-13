@@ -85,7 +85,7 @@
     }
 }
 
-.addButton {
+.addButton, .removeButton {
     border: none;
     width: 220px;
     height: 40px;
@@ -98,11 +98,19 @@
     margin-top: 20px;
 }
 
+.addButton:hover, .removeButton:hover{ 
+    transition: .4s;
+    cursor: pointer;
+}
+
 .addButton:hover{ 
     background-color: rgb(150, 235, 160);
-    transition: .4s;
     color: rgb(18, 99, 28);
-    cursor: pointer;
+}
+
+.removeButton:hover {
+    background-color: rgb(235, 150, 150);
+    color: rgb(99, 18, 18);
 }
 
 .addButton:focus {

@@ -119,7 +119,7 @@ table {
   margin: 4px 0;
   font-family: Lato, sans-serif; }
 
-.addButton {
+.addButton, .removeButton {
   border: none;
   width: 220px;
   height: 40px;
@@ -131,11 +131,17 @@ table {
   color: #3a3a3a;
   margin-top: 20px; }
 
+.addButton:hover, .removeButton:hover {
+  transition: .4s;
+  cursor: pointer; }
+
 .addButton:hover {
   background-color: #96eba0;
-  transition: .4s;
-  color: #12631c;
-  cursor: pointer; }
+  color: #12631c; }
+
+.removeButton:hover {
+  background-color: #eb9696;
+  color: #631212; }
 
 .addButton:focus {
   outline: none; }
