@@ -1,14 +1,15 @@
-.YourFleet {
+.YourFleet {  
+    // --
     background-image: url("/images/CloneTrooper_background.jpg"), linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     background-blend-mode: overlay;
     background-size: cover;
     color: white;
     font-family: Lato; 
 
-    .pick {
+    /* .pick {
         display: flex;
-    }
-    
+    } */
+
     .selected, .pick-your-crew {
         /* border: 2px solid red; */
         height: 630px;
@@ -25,11 +26,11 @@
         width: 60%;
     }
     
-    .pick-your-crew {
+    /* .pick-your-crew {
         h2 {
             text-align: center;
         }
-    }
+    } */
     
     .selected-spaceship, .selected-characters {
         /* border: 2px solid blue; */
@@ -58,18 +59,16 @@
         margin: 5px;
     }
     
-    .pick-your-crew-characters {
-        /* border: 1px solid yellow; */
+    /* .pick-your-crew-characters {
         height: 400px;
         position: relative;
         top: 50px;
         margin: 0 30px;
         padding: 0px 40px;
         margin-top: -30px;
-    }
+    } */
     
     .selected-spaceship-details {
-        /* border: 1px solid rgb(255, 3, 205); */
         height: 230px;
         margin-top: -12px;
         margin-right: 50px;
@@ -108,20 +107,18 @@
         display: flex;
     }
     
-    .character-wrapper{
-        /* border: 1px solid aquamarine; */
+    /* .character-wrapper{
         margin-top: -16px;
         width: 150px;
         margin-right: 20px;
-    }
+    } */
     
-    .pick-character {
-        /* border: 1px solid rgb(255, 225, 0); */
+    /* .pick-character {
         height: 130px;
         width: 130px;
-    }
+    } */
     
-    .character {
+    /* .character {
         figure {
             position: relative;
             right: 40px;
@@ -135,7 +132,7 @@
                 background-color: rgba(34, 36, 40, 0.37);
             }
         }
-    }
+    } */
     
     .selected-spaceship.pagination {
         position: relative;
@@ -153,9 +150,9 @@
         padding: 0;
     }
     
-    .pick-your-crew.pagination {
+    /* .pick-your-crew.pagination {
         left: 310px;
         top: 30px;
         height: 0;
-    }    
+    }     */
 }

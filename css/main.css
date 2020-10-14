@@ -352,9 +352,52 @@ table {
   background-blend-mode: overlay;
   background-size: cover;
   color: white;
-  font-family: Lato; }
-  .YourFleet .pick {
-    display: flex; }
+  font-family: Lato;
+  /* .pick {
+        display: flex;
+    } */
+  /* .pick-your-crew {
+        h2 {
+            text-align: center;
+        }
+    } */
+  /* .pick-your-crew-characters {
+        height: 400px;
+        position: relative;
+        top: 50px;
+        margin: 0 30px;
+        padding: 0px 40px;
+        margin-top: -30px;
+    } */
+  /* .character-wrapper{
+        margin-top: -16px;
+        width: 150px;
+        margin-right: 20px;
+    } */
+  /* .pick-character {
+        height: 130px;
+        width: 130px;
+    } */
+  /* .character {
+        figure {
+            position: relative;
+            right: 40px;
+            bottom: 13px;
+        }
+    }
+    .character {
+        figure {
+            img {
+                width: 120px;
+                background-color: rgba(34, 36, 40, 0.37);
+            }
+        }
+    } */
+  /* .pick-your-crew.pagination {
+        left: 310px;
+        top: 30px;
+        height: 0;
+    }     */ }
   .YourFleet .selected, .YourFleet .pick-your-crew {
     /* border: 2px solid red; */
     height: 630px;
@@ -365,8 +408,6 @@ table {
     background-color: rgba(26, 28, 32, 0.1); }
   .YourFleet .pick-your-crew {
     width: 60%; }
-  .YourFleet .pick-your-crew h2 {
-    text-align: center; }
   .YourFleet .selected-spaceship, .YourFleet .selected-characters {
     /* border: 2px solid blue; */
     margin-left: 30px; }
@@ -384,16 +425,7 @@ table {
     /* border: 1px solid greenyellow; */
     height: 430px;
     margin: 5px; }
-  .YourFleet .pick-your-crew-characters {
-    /* border: 1px solid yellow; */
-    height: 400px;
-    position: relative;
-    top: 50px;
-    margin: 0 30px;
-    padding: 0px 40px;
-    margin-top: -30px; }
   .YourFleet .selected-spaceship-details {
-    /* border: 1px solid rgb(255, 3, 205); */
     height: 230px;
     margin-top: -12px;
     margin-right: 50px; }
@@ -414,22 +446,6 @@ table {
   .YourFleet .selected-characters-container {
     width: 570px;
     display: flex; }
-  .YourFleet .character-wrapper {
-    /* border: 1px solid aquamarine; */
-    margin-top: -16px;
-    width: 150px;
-    margin-right: 20px; }
-  .YourFleet .pick-character {
-    /* border: 1px solid rgb(255, 225, 0); */
-    height: 130px;
-    width: 130px; }
-  .YourFleet .character figure {
-    position: relative;
-    right: 40px;
-    bottom: 13px; }
-  .YourFleet .character figure img {
-    width: 120px;
-    background-color: rgba(34, 36, 40, 0.37); }
   .YourFleet .selected-spaceship.pagination {
     position: relative;
     top: 21px;
@@ -442,7 +458,3 @@ table {
     height: 0px;
     width: 300px;
     padding: 0; }
-  .YourFleet .pick-your-crew.pagination {
-    left: 310px;
-    top: 30px;
-    height: 0; }
